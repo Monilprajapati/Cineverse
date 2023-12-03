@@ -12,16 +12,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Player from './pages/Player';
 import Search from './pages/Search';
-import { Helmet } from "react-helmet";
-import logo from "./assets/images/logo.png"
 
 function App() {
 
   return (
     <MovieProvider>
-      <Helmet>
-       <meta property="og:image" content={logo}/>
-      </Helmet>
       <ToastContainer
         position="bottom-center"
         autoClose={2000}
