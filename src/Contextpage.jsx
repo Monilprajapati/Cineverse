@@ -94,16 +94,18 @@ export function MovieProvider({ children }) {
 
 
   //<========= firebase Google Authentication ========>
-  const googleProvider = new GoogleAuthProvider();// =====> google auth provide
+    const provider = new GoogleAuthProvider();
 
   const GoogleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      navigate("/")
-      toast.success("Login successfully");
-    } catch (err) {
-      console.log(err)
-      navigate("/")
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      toast.success(`Welcome ${user.displayName}`);
+      return user
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+      return err
     }
   }
   // <==========================================================>
